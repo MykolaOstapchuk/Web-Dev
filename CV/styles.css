@@ -1,0 +1,30 @@
+.main {
+  padding: 20px 50px;
+}
+
+.header-section {
+  display: flex;
+  gap: 75px;
+}
+
+.avatar-img {
+  align-self: center;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+
+.icons {
+  align-self: center;
+  height: 20px;
+  width: 20px;
+}
+
+.section-title {
+  border-bottom: 1px solid black;
+}
