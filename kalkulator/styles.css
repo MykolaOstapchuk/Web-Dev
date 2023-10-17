@@ -1,0 +1,56 @@
+.main {
+  height: 100%;
+  width: 255px;
+  padding: 10px;
+  margin: 0 30px;
+  border: 1px solid gray;
+  border-radius: 1%;
+}
+
+.keys {
+  width: 195px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.screen {
+  height: 60px;
+  width: 255px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 1%;
+  margin-bottom: 5px;
+}
+
+.management {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.key-button {
+  height: 60px;
+  width: 60px;
+}
+
+.management-button {
+  height: 60px;
+  width: 125px;
+}
+
+.history-text {
+  display: flex;
+  width: 125px;
+  margin: 0 30px;
+  overflow: auto;
+}

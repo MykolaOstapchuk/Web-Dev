@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Calculator</title>
+    <script>
+      let history = [];
+      let symbolBefore = false;
+      function gen() {
+        const keys = document.getElementById("keys");
+        for (let i = 9; i >= 0; i--) {
+          const numKey = document.createElement("button");
+          numKey.innerText = i;
+          numKey.onclick = calculate;
+          numKey.dataset.value = i;
+          numKey.className = "key-button";
+          keys.appendChild(numKey);
+        }
+
+        const dotKey = document.createElement("button");
+        dotKey.innerText = ".";
+        dotKey.onclick = dotSymbol;
+        dotKey.dataset.value = ".";
+        dotKey.className = "key-button";
+        keys.appendChild(dotKey);
+
+        const equalKey = document.createElement("button");
+        equalKey.innerText = "=";
+        equalKey.onclick = showResult;
+        equalKey.dataset.value = "=";
+        equalKey.className = "key-button";
+        keys.appendChild(equalKey);
+
+        const actionsSymbols = ["*", "-", "+", "/"];
+        const actions = document.getElementById("actions");
+        actionsSymbols.forEach((actionsSymbol) => {
+          const actionKey = document.createElement("button");
+          actionKey.innerText = actionsSymbol;
+          actionKey.onclick = symbol;
+          actionKey.dataset.value = actionsSymbol;
+          actionKey.className = "key-button";
+          actions.appendChild(actionKey);
+        });
+
+        const management = document.getElementById("management");
+        const delKey = document.createElement("button");
+        delKey.innerText = "<<<";
+        delKey.onclick = deleteValue;
+        delKey.className = "management-button";
+        management.appendChild(delKey);
+
+        const clearKey = document.createElement("button");
+        clearKey.innerText = "WYCZYŚĆ";
+        clearKey.onclick = clearValue;
+        clearKey.className = "management-button";
+        management.appendChild(clearKey);
+
+        const screenValue = document.getElementById("value");
+        screenValue.innerText = "0";
+        screenValue.dataset.value = "0";
+
+        const history = document.getElementById("history");
+        const historyButton = document.createElement("button");
+        historyButton.innerText = "Historia";
+        historyButton.onclick = showHistory;
+        historyButton.className = "management-button";
+        history.appendChild(historyButton);
+      }
+
+      function calculate() {
+        const screenValue = document.getElementById("value");
+        history.push(this.dataset.value);
+        if (symbolBefore) {
+          switch (history[history.length - 2]) {
+            case ".":
+              history.push(
+                parseFloat(
+                  history[history.length - 3] + "." + this.dataset.value
+                )
+              );
+              break;
+            case "*":
+              history.push(
+                parseFloat(history[history.length - 3]) *
+                  parseFloat(this.dataset.value)
+              );
+              break;
+            case "-":
+              history.push(
+                parseFloat(history[history.length - 3]) -
+                  parseFloat(this.dataset.value)
+              );
+              break;
+            case "+":
+              history.push(
+                parseFloat(history[history.length - 3]) +
+                  parseFloat(this.dataset.value)
+              );
+              break;
+            case "/":
+              history.push(
+                parseFloat(history[history.length - 3]) /
+                  parseFloat(this.dataset.value)
+              );
+              break;
+          }
+          symbolBefore = false;
+        }
+        screenValue.dataset.value = this.dataset.value;
+        screenValue.innerText = history[history.length - 1].toString();
+
+        console.log(history);
+      }
+
+      function clearValue() {
+        const screenValue = document.getElementById("value");
+        screenValue.dataset.value = 0;
+        screenValue.innerText = "0";
+        symbolBefore = false;
+        history = [];
+
+        console.log(history);
+      }
+
+      function deleteValue() {
+        const screenValue = document.getElementById("value");
+        if (history.length > 1) {
+          history.push(history[history.length - 2]);
+        } else {
+          history.push(0);
+        }
+        screenValue.dataset.value = history[history.length - 1];
+        screenValue.innerText = history[history.length - 1].toString();
+        symbolBefore = symbolBefore && false;
+
+        console.log(history);
+      }
+
+      function symbol() {
+        history.push(this.dataset.value);
+        symbolBefore = true;
+
+        console.log(history);
+      }
+
+      function dotSymbol() {
+        if (
+          isNaN(history[history.length - 1]) &&
+          isNaN(parseFloat(history[history.length - 1]))
+        ) {
+          alert("Bład!");
+        } else {
+          const screenValue = document.getElementById("value");
+          screenValue.dataset.value = this.dataset.value;
+          screenValue.innerText =
+            history[history.length - 1] + this.dataset.value.toString();
+          history.push(this.dataset.value);
+          symbolBefore = true;
+
+          console.log(history);
+        }
+      }
+
+      function showResult() {
+        const screenValue = document.getElementById("value");
+        screenValue.dataset.value = history[history.length - 1];
+        screenValue.innerText = history[history.length - 1].toString();
+
+        console.log(history);
+      }
+
+      function showHistory() {
+        const screenValue = document.getElementById("history-text");
+        screenValue.innerText = "";
+        for (let i = 0; i < history.length; i++) {
+          if (i % 4 === 0) {
+            screenValue.innerText = screenValue.innerText + "\n";
+          }
+          screenValue.innerText = screenValue.innerText + " " + history[i];
+        }
+        console.log(history);
+      }
+    </script>
+  </head>
+  <body onload="gen()" style="display: flex">
+    <div class="main">
+      <div id="screen" class="screen"><p id="value"></p></div>
+      <div id="management" class="management"></div>
+      <div style="display: flex; margin-top: 5px">
+        <div id="keys" class="keys"></div>
+        <div id="actions" class="actions"></div>
+      </div>
+    </div>
+    <div id="history" class="history"></div>
+    <div id="history-text" class="history-text"></div>
+  </body>
+</html>
