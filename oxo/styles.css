@@ -1,0 +1,27 @@
+.main {
+  height: 100%;
+  width: 370px;
+}
+
+.board {
+  width: 380px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 1%;
+}
+
+.field {
+  height: 120px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.reset-button {
+  height: 40px;
+  width: 120px;
+  cursor: pointer;
+  margin-top: 10px;
+}

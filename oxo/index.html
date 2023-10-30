@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>OXO</title>
+    <script>
+      let symbolBefore = "";
+      let moveCount = 0;
+      function gen() {
+        const main = document.getElementById("main");
+        const board = document.getElementById("board");
+        for (let i = 0; i < 9; i++) {
+          const field = document.createElement("button");
+          field.dataset.value = "";
+          field.id = "field" + i;
+          field.onclick = handleClick;
+          field.className = "field";
+          board.appendChild(field);
+        }
+
+        const resetButton = document.createElement("button");
+        resetButton.className = "reset-button";
+        resetButton.onclick = resetGame;
+        resetButton.innerText = "Zacznij od nowa!";
+        main.appendChild(resetButton);
+      }
+
+      function handleClick(value) {
+        const field = document.getElementById(value.target.id);
+        if (field.dataset.value !== "") {
+          return;
+        }
+
+        if (symbolBefore === "x") {
+          field.dataset.value = "o";
+          field.innerText = "O";
+          symbolBefore = "o";
+        } else {
+          field.dataset.value = "x";
+          field.innerText = "X";
+          symbolBefore = "x";
+        }
+        moveCount++;
+        winCheck();
+        drawCheck();
+      }
+
+      function winCheck() {
+        const winCombinations = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+
+        winCombinations.forEach((winCombination) => {
+          if (
+            document.getElementById("field" + winCombination[0]).innerText !==
+              "" &&
+            document.getElementById("field" + winCombination[0]).innerText ===
+              document.getElementById("field" + winCombination[1]).innerText &&
+            document.getElementById("field" + winCombination[1]).innerText ===
+              document.getElementById("field" + winCombination[2]).innerText &&
+            document.getElementById("field" + winCombination[2]).innerText ===
+              document.getElementById("field" + winCombination[0]).innerText
+          ) {
+            alert(
+              "Gracz " +
+                document.getElementById("field" + winCombination[0]).innerText +
+                " wygrał!"
+            );
+            resetGame();
+          }
+        });
+      }
+
+      function drawCheck() {
+        if (moveCount > 7) {
+          alert("Remis!");
+          resetGame();
+        }
+      }
+
+      function resetGame() {
+        for (let i = 0; i < 9; i++) {
+          document.getElementById("field" + i).dataset.value = "";
+          document.getElementById("field" + i).innerText = "";
+        }
+        symbolBefore = "";
+        moveCount = 0;
+      }
+    </script>
+  </head>
+  <body onload="gen()" style="display: flex">
+    <div id="main" class="main">
+      <div id="board" class="board"></div>
+    </div>
+  </body>
+</html>
