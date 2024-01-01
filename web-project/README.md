@@ -9,41 +9,41 @@ Administrator ma dostęp do dodatkowego panelu wystawionego na innym porcie, dzi
 
 ### Strona główna
 
-![main_page](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/main_page.png)
+![main_page](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/main_page.png)
 
 ### Widok tapety
 
-![wallpaper_view](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/wallpaper_view.png)
+![wallpaper_view](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/wallpaper_view.png)
 
 ### Profil
 
-![profil](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/profile.png)
+![profil](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/profile.png)
 
 ### Logowanie
 
-![login](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/login.png)
+![login](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/login.png)
 
 ### Rejestracja 
 
-![register](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/register.png)
+![register](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/register.png)
 
 ## Prezentacja back-end
 
 ### Widok administratora
 
-![admin_view](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/admin_view.png)
+![admin_view](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/admin_view.png)
 
 ### Widok administratora - tapety
 
-![wallpapers_admin](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/wallpapers_admin.png)
+![wallpapers_admin](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/wallpapers_admin.png)
 
 ### Widok administratora - tapeta
 
-![wallpaper_admin](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/wallpaper_admin.png)
+![wallpaper_admin](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/wallpaper_admin.png)
 
 ### Widok REST API - tapety
 
-![wallpapers_rest](https://github.com/PrzemyslawSalek/web-dev/blob/main/web-project/docs/wallpaper_rest.png)
+![wallpapers_rest](https://github.com/MykolaOstapchuk/Web-Dev/blob/main/web-project/docs/wallpaper_rest.png)
 
 ## Technologie
 - React (m.in axios, reactstrap)
