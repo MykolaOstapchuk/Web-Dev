@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #252628;
+  border-top: 1px solid #191616;
+  color: white;
+}
+
+.footer-test-app {
+  cursor: pointer;
+}
+
+.footer-test-app:hover {
+  color: #afafaf;
+}

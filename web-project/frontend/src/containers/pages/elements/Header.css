@@ -1,0 +1,53 @@
+.header {
+  display: block;
+}
+
+.header__navbar {
+  background-color: #252628;
+  padding-bottom: 0.7rem;
+}
+
+.header__containter {
+  max-width: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.header__dropdown-toggle {
+  background-color: unset !important;
+  border: unset !important;
+  box-shadow: unset !important;
+}
+
+.header__navlink {
+  color: white;
+  cursor: pointer;
+}
+
+.header__navlink:hover {
+  color: #afafaf;
+}
+
+.header__image {
+  width: 40px;
+  height: 40px;
+}
+
+.header__navbar-brand {
+  display: flex;
+  color: white;
+  font-size: 24px;
+}
+
+.header__navbar-brand:hover {
+  color: #afafaf;
+}
+
+.header__logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 6px;
+}
